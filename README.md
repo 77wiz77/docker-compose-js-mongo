@@ -52,6 +52,7 @@ CMD node server.js
 
 ### Скрипт docker-compose.yml
 
+```
 version: '2'
 services:
  app:
@@ -68,4 +69,4 @@ services:
    image: mongo
    ports:
      - '27017:27017'
-
+```
