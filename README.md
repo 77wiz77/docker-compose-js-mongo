@@ -40,30 +40,30 @@ docker swarm leave --force //полный выход из докер-улья
 
 ### Скрипт Dockerfile
 
-FROM node:18.10-alpine3.15
-WORKDIR /app
-COPY package.json .
-RUN yarn
-COPY . .
-EXPOSE 4000
-CMD node server.js
+ FROM node:18.10-alpine3.15
+ WORKDIR /app
+ COPY package.json .
+ RUN yarn
+ COPY . .
+ EXPOSE 4000
+ CMD node server.js
 
 ### Скрипт docker-compose.yml
 
-version: '2'
-services:
-  app:
-    container_name: app
-    image: 127.0.0.1:4005/stackdemo
-    restart: always
-    build: .
-    ports:
-      - '4000:4000'
-    links:
-      - mongo
-  mongo:
-    container_name: mongo
-    image: mongo
-    ports:
-      - '27017:27017'
+ version: '2'
+ services:
+   app:
+     container_name: app
+     image: 127.0.0.1:4005/stackdemo
+     restart: always
+     build: .
+     ports:
+       - '4000:4000'
+     links:
+       - mongo
+   mongo:
+     container_name: mongo
+     image: mongo
+     ports:
+       - '27017:27017'
 
