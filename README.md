@@ -53,7 +53,7 @@ CMD node server.js
 ### Скрипт docker-compose.yml
 
 ```
-version: '2'
+version: '3'
 services:
   app:
     container_name: app
