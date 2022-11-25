@@ -9,9 +9,6 @@ services:
       - '4000:4000'
     links:
       - mongo
-    deploy:
-      mode: replicated
-      replicas: 4
   mongo:
     container_name: mongo
     image: mongo
