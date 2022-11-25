@@ -7,6 +7,37 @@
 
 ## Задание 7. Использование Docker с БД
 
+### Dockerfile
+
+```
+FROM node:18.10-alpine3.15
+WORKDIR /app
+COPY package.json .
+RUN yarn
+COPY . .
+EXPOSE 4000
+CMD node server.js
+```
+
+### docker-compose.yml
+
+```
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    ports:
+      - '4000:4000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+```
+
 ### Доступные URL:
 
 / - вывести текущее значение счетчика
