@@ -193,6 +193,15 @@ kubectl get po
 kubectl expose deploy kbs-example --port=80
 kubectl get svc
 ```
+
+Удаление созданного кластера:
+
+```
+kubectl delete deploy kbs-example
+kubectl delete svc kbs-example
+kubectl delete po kbs-example
+```
+
 ### Скрипт kubernetes.yaml
 
 ```
