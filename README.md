@@ -166,19 +166,19 @@ services:
 
 ### Команды для аналогичного запуска в Kubernetes
 
-Устанавливаем UI для Kubernetes:
+Проверить установлен ли kubernetes:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta1/aio/deploy/recommended.yaml
+kubectl version --client -o yaml
 ```
 
-Запускаем UI:
+Запуск kubernetes:
 
 ```
-kubectl proxy
+minikube start
 ```
 
-Создаем кластеры
+Создаем кластеры:
 
 ```
 kubectl apply -f kubernetes.yaml
