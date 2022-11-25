@@ -164,6 +164,62 @@ services:
       - '27017:27017'
 ```
 
+### Команды для аналогичного запуска в Kubernetes
+
+Устанавливаем UI для Kubernetes:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta1/aio/deploy/recommended.yaml
+```
+
+Запускаем UI:
+
+```
+kubectl proxy
+```
+
+Создаем кластеры
+
+```
+kubectl apply -f kubernetes.yaml
+kubectl get deploy
+kubectl get rs
+kubectl get po
+```
+Создаем сервис и запускаем его локально на порту 80:
+
+kubectl expose deploy kbs-example --port=80
+kubectl get svc
+
+### Скрипт kubernetes.yaml
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kbs-example
+  name: kbs-example
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: kbs-example
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kbs-example
+    spec:
+      containers:
+      - image: kbs-example
+        name: kbs-example
+        resources: {}
+status: {}
+```
+
 ### Каким образом можно проанализировать требования к количеству кластеров приложения? Как бы вы решили задачу такой оценки?
 
 Количество кластеров определяет следующие характеристики приложения:
