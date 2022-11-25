@@ -186,11 +186,13 @@ kubectl get deploy
 kubectl get rs
 kubectl get po
 ```
+
 Создаем сервис и запускаем его локально на порту 80:
 
+```
 kubectl expose deploy kbs-example --port=80
 kubectl get svc
-
+```
 ### Скрипт kubernetes.yaml
 
 ```
